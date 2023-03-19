@@ -11,6 +11,12 @@ import { CartelerasComponent } from './Components/carteleras/carteleras.componen
 import { CarouselMoviesComponent } from './Components/carousel-movies/carousel-movies.component';
 import { HeaderPresentacionComponent } from './Components/header-presentacion/header-presentacion.component';
 import { ComentariosCarteleraComponent } from './Components/comentarios-cartelera/comentarios-cartelera.component';
+import { LoginComponent } from './Components/login/login.component';
+import { FormularioLoginComponent } from './Components/formulario-login/formulario-login.component';
+import { NavbarLoginComponent } from './Components/navbar-login/navbar-login.component';
+import { RegistroComponent } from './Components/registro/registro.component';
+import { RegistroFormularioComponent } from './Components/registro-formulario/registro-formulario.component';
+import { NavbarRegistroComponent } from './Components/navbar-registro/navbar-registro.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +27,21 @@ import { ComentariosCarteleraComponent } from './Components/comentarios-carteler
     CartelerasComponent,
     CarouselMoviesComponent,
     HeaderPresentacionComponent,
-    ComentariosCarteleraComponent
+    ComentariosCarteleraComponent,
+    LoginComponent,
+    FormularioLoginComponent,
+    NavbarLoginComponent,
+    RegistroComponent,
+    RegistroFormularioComponent,
+    NavbarRegistroComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot([
       {path: '', component: InicioComponent},
+      {path: 'login', component: LoginComponent},
+      {path: 'registrar', component: RegistroComponent}
 
     ]),
   ],
