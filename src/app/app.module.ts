@@ -1,5 +1,8 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +20,12 @@ import { NavbarLoginComponent } from './Components/navbar-login/navbar-login.com
 import { RegistroComponent } from './Components/registro/registro.component';
 import { RegistroFormularioComponent } from './Components/registro-formulario/registro-formulario.component';
 import { NavbarRegistroComponent } from './Components/navbar-registro/navbar-registro.component';
+import { NavbarUsuarioSesionComponent } from './Components/navbar-usuario-sesion/navbar-usuario-sesion.component';
+import { UsuarioHomeComponent } from './Components/usuario-home/usuario-home.component';
+import { InformacionUsuarioComponent } from './Components/informacion-usuario/informacion-usuario.component';
+import { UsuarioComponent } from './Components/usuario/usuario.component';
+import { InformacionPeliculaComponent } from './Components/informacion-pelicula/informacion-pelicula.component';
+import { PeliculaComponent } from './Components/pelicula/pelicula.component';
 
 @NgModule({
   declarations: [
@@ -33,15 +42,24 @@ import { NavbarRegistroComponent } from './Components/navbar-registro/navbar-reg
     NavbarLoginComponent,
     RegistroComponent,
     RegistroFormularioComponent,
-    NavbarRegistroComponent
+    NavbarRegistroComponent,
+    NavbarUsuarioSesionComponent,
+    UsuarioHomeComponent,
+    InformacionUsuarioComponent,
+    UsuarioComponent,
+    InformacionPeliculaComponent,
+    PeliculaComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     RouterModule.forRoot([
-      {path: '', component: InicioComponent},
-      {path: 'login', component: LoginComponent},
-      {path: 'registrar', component: RegistroComponent}
+      {path: '', component : InicioComponent},
+      {path: 'login', component : LoginComponent},
+      {path: 'registrar', component : RegistroComponent},
+      {path: 'usuario', component : UsuarioComponent},
+      {path: 'pelicula', component : PeliculaComponent }
 
     ]),
   ],

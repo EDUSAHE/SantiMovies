@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ServiceAPI } from 'src/app/services/API';
+//import { ServiceAPI } from 'src/app/services/API';
 declare var $: any
 
 @Component({
@@ -9,20 +9,20 @@ declare var $: any
 })
 export class CartelerasComponent {
 
-  peliculas:any[]
+  //peliculas:any[]
 
-  constructor(private API:ServiceAPI){
-    this.peliculas = []
-  }
+  //constructor(private API:ServiceAPI){
+    //this.peliculas = []
+ // }
   ngOnInit(): void {
-    this.ObtenerPeli()
+   // this.ObtenerPeli()
 
   }
-  ObtenerPeli(): void {
-		this.API.ObtenerPeliculas().subscribe((resPeliculas: any) => {
-			this.peliculas = resPeliculas
-			console.log(this.peliculas)
-		},
-			err => console.error(err))
-	}
+  //ObtenerPeli(): void {
+		//this.API.ObtenerPeliculas().subscribe((resPeliculas: any) => {
+			//this.peliculas = resPeliculas
+			//console.log(this.peliculas)
+		//},
+		//	err => console.error(err))
+	//}
 }

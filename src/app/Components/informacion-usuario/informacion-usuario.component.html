@@ -1,0 +1,16 @@
+<div *ngIf="loggedIn" class="form-container">
+    <br>
+    <h2 class="text-center">Bienvenido {{ usuario.nombre }}</h2>
+    <p>Correo electrónico: {{ usuario.correo }}</p>
+    <p>Otros campos de información: {{ usuario.otroCampo }}</p>
+    <button (click)="cerrarSesion()" class="btn btn-secondary">Cerrar sesión</button>
+  </div>
+  
+  <div *ngIf="!loggedIn" class="form-container">
+    <br>
+    
+
+    <app-formulario-login></app-formulario-login>
+    
+  </div>
+  
