@@ -1,0 +1,36 @@
+<div class="container text-center">
+    <div class="shell">
+        <div class="container">
+            <div class="row">
+                <ng-container *ngFor="let movie of movies">
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                        <div class="wsk-cp-product" style="height: 650px;" routerLink="/pelicula">
+                            <div class="wsk-cp-img">
+                                <img id="myImg"
+                                    style="height: 400px;"
+                                    src="{{'https://image.tmdb.org/t/p/w500'+movie.poster_path}}"
+                                    alt="Snow" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+                            </div>
+                            <div class="wsk-cp-text">
+                                <div class="category boton">
+                                    <span>Ver más</span>
+                                </div>
+                                <div class="title-product">
+                                    <p class="titulo">{{movie.title}}</p>
+                                </div>
+                                <div>
+                                    <p class="datos">{{generos.get(movie.genre_ids[0])}}</p>
+                                    <p class="datos">{{convertirFecha(movie.release_date)}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+        </div>
+        <!--fIN LINEA TRES OBRAS-->
+
+    </div>
+
+</div>
+
+<!--TERMINA TARJETAS -->
