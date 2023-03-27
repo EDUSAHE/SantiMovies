@@ -1,5 +1,2 @@
 package-lock.json
 node_modules/
-
-/src/keys.ts
-/src/build/keys.js

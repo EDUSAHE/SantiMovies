@@ -1,16 +1,79 @@
-
 <app-barra-navegacion></app-barra-navegacion>
 
+<br><br><br>
 
+<div class="container">
+    <div class="row">
+        <div class="col-xl-4" style="text-align: center;">
+            <img style="height: 525px;" src="{{'https://image.tmdb.org/t/p/w500'+infoMovie.poster_path}}">
+        </div>
+        <div class="col-xl-8">
+            <div class="row">
+                <h2 class="text-center">{{infoMovie.title}}</h2>
+            </div>
+            <div class="row">
+                <table class="table">
+                    <tr>
+                        <th>
+                            Fecha de lanzamiento
+                        </th>
+                        <td>
+                            {{convertirFecha(infoMovie.release_date)}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Duración
+                        </th>
+                        <td>
+                            {{infoMovie.runtime}} minutos
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Género(s)
+                        </th>
+                        <td>
+                            <ul style="margin-bottom: 0px; padding: 4px;" *ngFor="let genero of infoMovie.genres">{{generos.get(genero.id)}}</ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Productora(s)
+                        </th>
+                        <td>
+                            <ul style="margin-bottom: 0px; padding: 4px;" *ngFor="let productora of infoMovie.production_companies">{{productora.name}}</ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Presupuesto
+                        </th>
+                        <td>
+                            ${{infoMovie.budget.toLocaleString('es-MX')}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Recaudación
+                        </th>
+                        <td>
+                            ${{infoMovie.revenue.toLocaleString('es-MX')}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Sinopsis
+                        </th>
+                        <td style="text-align: justify;">
+                            {{infoMovie.overview}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
-<br><br>
-<br>
-<br>
-<br>
-<br>
-
-
-<app-informacion-pelicula></app-informacion-pelicula>
-<app-comentarios-cartelera></app-comentarios-cartelera>
 
 <app-barra-final></app-barra-final>

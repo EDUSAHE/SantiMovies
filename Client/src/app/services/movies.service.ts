@@ -12,5 +12,9 @@ export class MoviesService {
   obtenermovies(idpage:any){
     return this.http.get(`${environment.API_URL}/movie/popular?${environment.API_KEY}&language=es-MX&page=${idpage}`);
   }
+  
+  infomovie(idMovie:any){
+    return this.http.get(`${environment.API_URL}/movie/${idMovie}?${environment.API_KEY}&language=es-MX`);
+  }
 
 }

@@ -56,13 +56,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    RouterModule.forRoot([
-      {path: '', component : InicioComponent},
-      {path: 'login', component : LoginComponent},
-      {path: 'registrar', component : RegistroComponent},
-      {path: 'usuario', component : UsuarioComponent},
-      {path: 'pelicula', component : PeliculaComponent }
-    ]),
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

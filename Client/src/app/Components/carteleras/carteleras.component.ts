@@ -1,7 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { MoviesService } from 'src/app/services/movies.service';
-
-
+import { Router } from '@angular/router';
 
 declare var $:any;
 
@@ -17,10 +16,10 @@ export class CartelerasComponent implements OnInit{
   idPage:number =0
   pageSize: number = 16
   movies : any[]
-  generos: Map<number, string> = new Map();
   path_poster:any
+  generos: Map<number, string> = new Map();
 
-  constructor(private moviesServices: MoviesService){
+  constructor(private moviesServices: MoviesService, private router:Router,){
     this.path_poster = "https://image.tmdb.org/t/p/w500"
     this.movies = []
     this.generos.set(28,"Acción")
@@ -61,6 +60,12 @@ export class CartelerasComponent implements OnInit{
   convertirFecha(fecha:any){
     const date = new Date(fecha)
     return date.getUTCDay() + " de " + date.toLocaleString("es-MX",{month:"long"}) + " del " + date.getFullYear()
+  }
+
+  mostrarInfo(idMovie:any){
+    localStorage.setItem("idMovie",idMovie)
+    this.router.navigateByUrl(`/pelicula/${idMovie}`)
+
   }
 
 
