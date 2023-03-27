@@ -1,6 +1,5 @@
 import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -26,6 +25,7 @@ import { InformacionUsuarioComponent } from './Components/informacion-usuario/in
 import { UsuarioComponent } from './Components/usuario/usuario.component';
 import { InformacionPeliculaComponent } from './Components/informacion-pelicula/informacion-pelicula.component';
 import { PeliculaComponent } from './Components/pelicula/pelicula.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -52,6 +52,7 @@ import { PeliculaComponent } from './Components/pelicula/pelicula.component';
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     HttpClientModule,
     FormsModule,
     AppRoutingModule,

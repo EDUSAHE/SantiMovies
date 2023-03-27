@@ -1,6 +1,11 @@
 import { Component,OnInit } from '@angular/core';
 import { MoviesService } from 'src/app/services/movies.service';
-declare var $: any
+
+
+
+declare var $:any;
+
+
 
 @Component({
   selector: 'app-carteleras',
@@ -8,14 +13,15 @@ declare var $: any
   styleUrls: ['./carteleras.component.css']
 })
 export class CartelerasComponent implements OnInit{
-  idPage:number
+  Page:number =0
+  idPage:number =0
+  pageSize: number = 16
   movies : any[]
   generos: Map<number, string> = new Map();
   path_poster:any
 
   constructor(private moviesServices: MoviesService){
     this.path_poster = "https://image.tmdb.org/t/p/w500"
-    this.idPage = 1
     this.movies = []
     this.generos.set(28,"Acción")
     this.generos.set(12,"Aventura")
@@ -38,19 +44,24 @@ export class CartelerasComponent implements OnInit{
     this.generos.set(37,"Western")
   }
   ngOnInit(): void {
-    this.listaMovies(this.idPage)
+    this.listaMovies(1)
   }
 
-  listaMovies(idPage:number){
-    this.moviesServices.obtenermovies(idPage).subscribe((resMovies:any)=>{
-      this.movies = resMovies.results
-      // console.log(this.movies)
-    },
-      err => console.error(err))
+  listaMovies(event:any){
+    this.Page=event
+    if(event>this.idPage && event<=1000){
+      this.idPage = event
+      this.moviesServices.obtenermovies(this.idPage).subscribe((resMovies:any)=>{
+        this.movies.push(...resMovies.results)
+      },
+        err => console.error(err))
+    }
   }
 
   convertirFecha(fecha:any){
     const date = new Date(fecha)
     return date.getUTCDay() + " de " + date.toLocaleString("es-MX",{month:"long"}) + " del " + date.getFullYear()
   }
+
+
 }
