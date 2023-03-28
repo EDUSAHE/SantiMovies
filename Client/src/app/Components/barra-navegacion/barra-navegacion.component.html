@@ -1,44 +1,42 @@
 <!--Inicio Navbar-->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
   <div class="container-fluid">
-    <input class="navbar-brand" type="image" src="" />
-
-
-   
-    
-         <!-- Barra de búsqueda -->
-         <!-- <div class="container-fluid d-flex justify-content-between">
-          <div class="mx-auto">
-         <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Buscar</button>
-        </form>
-      </div>
-    </div> -->
-        <!-- Fin de la barra de búsqueda -->
-        
+    <a class="navbar-brand logoytexto" href="/">
+      <img class="d-inline-block align-text-top" style="width: 60px; height: 60px;"
+        src="../../../assets/images/Logo1.png" />
+      SantiMovies
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item mx-3 ms-auto">
-          <a class="nav-link" routerLink="/registrar" routerLinkActive="activebutton" href= "">
-            Registrar
-          </a>
-        </li>
-        <li class="nav-item mx-3 ms-auto">
-          <a class="nav-link" routerLink="/login" routerLinkActive="activebutton" href= ""> Entrar </a>
-        </li>
-       
-
-        
-      </ul>
-
- 
-
+    <div *ngIf="idUsuario===NotNumber || idUsuario==0; else elseBlock">
+      <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item mx-3 ms-auto">
+            <a class="nav-link" routerLink="/registrar" routerLinkActive="activebutton" href="">
+              <img class="boton-navbar" src="../../../assets/images/Registrate.png">
+            </a>
+          </li>
+          <li class="nav-item mx-3 ms-auto">
+            <a class="nav-link" routerLink="/login" routerLinkActive="activebutton" href="">
+              <img class="boton-navbar" src="../../../assets/images/Acceder.png" alt="">
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
+    <ng-template #elseBlock>
+      <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item mx-3 ms-auto">
+            <a class="nav-link" (click)="logout()" routerLinkActive="activebutton" href="">
+              <img class="boton-navbar" src="../../../assets/images/Cerrar.png" alt="">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </ng-template>
   </div>
 </nav>
 <!--Fin Navbar-->

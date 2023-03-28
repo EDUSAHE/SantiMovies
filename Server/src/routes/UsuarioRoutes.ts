@@ -13,6 +13,7 @@ class UsuarioRoutes {
 		this.router.get('/', usuarioController.list)
 		this.router.post('/create', usuarioController.create)
 		this.router.post('/autentificar', usuarioController.existe);
+		this.router.post('/valida', usuarioController.existeCorreo);
 		this.router.delete('/delete/:idUsuario', usuarioController.delete)
 		
 	}

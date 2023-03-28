@@ -26,6 +26,7 @@ import { UsuarioComponent } from './Components/usuario/usuario.component';
 import { InformacionPeliculaComponent } from './Components/informacion-pelicula/informacion-pelicula.component';
 import { PeliculaComponent } from './Components/pelicula/pelicula.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxStarRatingModule } from 'ngx-star-rating';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     AppRoutingModule,
     RouterModule,
+    NgxStarRatingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,4 +14,7 @@ export class UsuarioService {
   Existe(Correo: string, Password: string) {
     return this.http.post(`${environment.API_SM}/usuarios/autentificar`, {Correo: Correo, Password: Password});
   }
+  validarCorreo(Correo: string) {
+    return this.http.post(`${environment.API_SM}/usuarios/valida`, {Correo: Correo});
+  }
 }

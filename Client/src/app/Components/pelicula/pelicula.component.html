@@ -1,11 +1,18 @@
 <app-barra-navegacion></app-barra-navegacion>
 
-<br><br><br>
+<br><br><br><br><br><br>
 
 <div class="container">
     <div class="row">
         <div class="col-xl-4" style="text-align: center;">
             <img style="height: 525px;" src="{{'https://image.tmdb.org/t/p/w500'+infoMovie.poster_path}}">
+            <div *ngIf="idUsuario===NotNumber || idUsuario==0; else Rate"></div>
+            <ng-template #Rate>
+                <div class="puntuacion">
+                    <h4>Puntuar:</h4>
+                    <ngx-star-rating [(ngModel)]="Puntuacion" (change)="actualizaCalif()" [id]="'rating'"></ngx-star-rating>
+                </div>
+            </ng-template>
         </div>
         <div class="col-xl-8">
             <div class="row">

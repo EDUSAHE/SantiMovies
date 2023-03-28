@@ -63,6 +63,19 @@ class UsuarioController {
                 res.json(-1);
         });
     }
+    existeCorreo(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { Correo } = req.body;
+            let consulta = "SELECT idUsuario,Password  FROM usuario WHERE Correo = '" + Correo + "'";
+            const respuesta = yield database_1.default.query(consulta);
+            if (respuesta.length > 0) {
+                res.json(200);
+                return;
+            }
+            else
+                res.json(-1);
+        });
+    }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { idUsuario } = req.params;

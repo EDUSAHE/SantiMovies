@@ -49,6 +49,18 @@ class UsuarioController {
 			res.json(-1);
 	}
 
+	public async existeCorreo(req: Request, res: Response): Promise<void> {
+		const { Correo } = req.body;
+		let consulta = "SELECT idUsuario,Password  FROM usuario WHERE Correo = '" + Correo + "'";
+		const respuesta = await pool.query(consulta);
+		if (respuesta.length > 0) {
+			res.json(200)
+			return
+		}
+		else
+			res.json(-1);
+	}
+
 
 	public async delete(req: Request, res: Response): Promise<void> {
 		const { idUsuario } = req.params

@@ -9,6 +9,7 @@ const express_1 = __importDefault(require("express"));
 const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 const swagger_json_1 = __importDefault(require("./swagger.json"));
 const UsuarioRoutes_1 = __importDefault(require("./routes/UsuarioRoutes"));
+const CalificacionRoutes_1 = __importDefault(require("./routes/CalificacionRoutes"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -26,6 +27,7 @@ class Server {
     }
     routes() {
         this.app.use('/api/usuarios', UsuarioRoutes_1.default);
+        this.app.use('/api/calificacion', CalificacionRoutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

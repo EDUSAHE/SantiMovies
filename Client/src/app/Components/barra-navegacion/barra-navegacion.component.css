@@ -1,5 +1,18 @@
 
 
+.logoytexto {
+  color: white;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  align-content: center;
+  gap: 7px;
+}
+
+.boton-navbar {
+  height: 60px;
+  width: 120px;
+}
 
 .navbar-light .navbar-nav .nav-link {
     color: white;

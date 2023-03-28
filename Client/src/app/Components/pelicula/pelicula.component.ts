@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from 'src/app/services/movies.service';
+import { CalificacionService } from 'src/app/services/calificacion.service';
 
 @Component({
   selector: 'app-pelicula',
@@ -10,9 +11,14 @@ export class PeliculaComponent implements OnInit {
   idMovie:number
   infoMovie:any
   generos: Map<number, string> = new Map();
-  constructor(private moviesService:MoviesService){
+  Puntuacion:number
+  idUsuario:number
+  NotNumber:any=NaN
+  constructor(private moviesService:MoviesService, private calificacionService:CalificacionService){
+    this.idUsuario=Number(localStorage.getItem("idUsuario"))
     this.idMovie=Number(localStorage.getItem("idMovie"))
     this.obtenerInfoPeli()
+    this.getCalificacion()
     this.generos.set(28,"Acción")
     this.generos.set(12,"Aventura")
     this.generos.set(16,"Animación")
@@ -32,6 +38,7 @@ export class PeliculaComponent implements OnInit {
     this.generos.set(53,"Suspenso")
     this.generos.set(10752,"Bélica")
     this.generos.set(37,"Western")
+    this.Puntuacion = 0
   }
 
   ngOnInit(): void {
@@ -48,5 +55,29 @@ export class PeliculaComponent implements OnInit {
   convertirFecha(fecha:any){
     const date = new Date(fecha)
     return date.getUTCDay() + " de " + date.toLocaleString("es-MX",{month:"long"}) + " del " + date.getFullYear()
+  }
+  getCalificacion(){
+    this.calificacionService.existeCalificacion(this.idMovie,this.idUsuario).subscribe((resExiste:any)=>{
+      if(resExiste==200){
+        this.calificacionService.obtenerCalificacion(this.idMovie,this.idUsuario).subscribe((resCalif:any)=>{
+          this.Puntuacion=resCalif.Calificacion
+          console.log(this.Puntuacion)
+        },
+        err => console.log(err))
+      }else
+        this.Puntuacion=0
+    },
+    err => console.error(err))
+  }
+  actualizaCalif(){
+    this.calificacionService.existeCalificacion(this.idMovie,this.idUsuario).subscribe((resExiste:any)=>{
+      if(resExiste==200){
+        this.calificacionService.updateCalificacion(this.idMovie,this.idUsuario,this.Puntuacion).subscribe((resUpdate:any)=>{ },
+        err => console.log(err))
+      }else
+        this.calificacionService.insertarCalificacion(this.idMovie,this.idUsuario,this.Puntuacion).subscribe((resCreate:any)=>{ },
+        err => console.log(err))
+    },
+    err => console.error(err))
   }
 }

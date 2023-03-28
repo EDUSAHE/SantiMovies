@@ -6,6 +6,7 @@ import swaggerDocument from './swagger.json'
 
 
 import UsuarioRoutes from './routes/UsuarioRoutes'
+import CalificacionRoutes from './routes/CalificacionRoutes'
 class Server {
 
 	public app: Application
@@ -28,6 +29,7 @@ class Server {
 
 	routes(): void {
 		this.app.use('/api/usuarios', UsuarioRoutes)
+		this.app.use('/api/calificacion', CalificacionRoutes)
 	}
 
 	start(): void {
