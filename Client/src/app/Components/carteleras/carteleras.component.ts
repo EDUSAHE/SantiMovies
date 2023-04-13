@@ -3,7 +3,9 @@ import { MoviesService } from 'src/app/services/movies.service';
 import { Router } from '@angular/router';
 
 declare var $:any;
-
+/**
+ * @param moviesService variable para poder llamar a los servios que conectan con la API
+ */
 
 
 @Component({

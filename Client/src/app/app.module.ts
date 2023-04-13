@@ -63,4 +63,4 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

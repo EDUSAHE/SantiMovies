@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "compodoc":"./node_modules/.bin/compodoc -p ./tsconfig.app.json -s --port=4400"
+    "compodoc":"./node_modules/.bin/compodoc -p src/tsconfig.app.json -s --port=4400"
   },
   "private": true,
   "dependencies": {
